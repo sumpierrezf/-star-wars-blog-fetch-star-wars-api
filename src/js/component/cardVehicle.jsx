@@ -2,18 +2,17 @@ import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 
 export const Vehicle = ({nombre, modelo, id}) => {
-
   
-  function obtenerInfoDePersonaje(){
-    fetch("https://swapi.dev/api/vehicles/"+id)
-.then(res => res.json())
-.then(data => console.log(data.results))
-.catch(err => console.error(err))
-}
+//   function obtenerInfoDePersonaje(){
+//     fetch("https://swapi.dev/api/vehicles/"+id)
+// .then(res => res.json())
+// .then(data => console.log(data.results))
+// .catch(err => console.error(err))
+// }
 
-useEffect(()=>{
-obtenerInfoDePersonaje();
-},[])
+// useEffect(()=>{
+// obtenerInfoDePersonaje();
+// },[])
 
 
 	return (
