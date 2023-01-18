@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
-import { Link, useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 export const Characters = ({nombre, genero, id}) => {
 
