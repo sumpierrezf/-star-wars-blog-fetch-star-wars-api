@@ -1,23 +1,25 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext.js";
 
 import "../../styles/home.css";
 
 
 
 export const ViewPlanets = () => {
+  const {store, actions} = useContext(Context);
   const params = useParams();
-  const [detallePlaneta, setDetallePlaneta] = useState([]);
+  // const [detallePlaneta, setDetallePlaneta] = useState([]);
 
   
-  function obtenerDetalleDePlaneta(){
-    fetch("https://swapi.dev/api/planets/"+params.theid)
-    .then(res => res.json())
-    .then(data => setDetallePlaneta(data))
-    .catch(err => console.error(err))
-}
+//   function obtenerDetalleDePlaneta(){
+//     fetch("https://swapi.dev/api/planets/"+params.theid)
+//     .then(res => res.json())
+//     .then(data => setDetallePlaneta(data))
+//     .catch(err => console.error(err))
+// }
   useEffect(()=>{
-    obtenerDetalleDePlaneta();
+    actions.obtenerDetalleDePlaneta(params.theid);
 },[])
   
   return(
@@ -29,16 +31,21 @@ export const ViewPlanets = () => {
  style={{ width:"800px", height: "600px" }} className="img-fluid rounded-start"  alt="..."/>
         </div>
         <div className="col-md">
-          <div className="card-body">
-            <h5 className="card-title">{detallePlaneta.name}</h5>
-            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div className="card-body p-3 m-3">
+            <h3 className="card-title">{store.detallePlaneta.name}</h3>
+            <br/>
+            <p className="card-text">Rotation period: {store.detallePlaneta.rotation_period}</p>
+            <p className="card-text">Orbital period: {store.detallePlaneta.orbital_period}</p>
+            <p className="card-text">Diameter: {store.detallePlaneta.diameter}</p>
+            <p className="card-text">Climate: {store.detallePlaneta.climate}</p>
+            <p className="card-text">Gravity: {store.detallePlaneta.gravity}</p>
+            <p className="card-text">Terrain: {store.detallePlaneta.terrain}</p>
+            <p className="card-text">Surface water: {store.detallePlaneta.surface_water}</p>
+            <p className="card-text">Population: {store.detallePlaneta.population}</p>
             <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
           </div>
         </div>
       </div>
-  </div>
-  <div>
-  <hr style={{ height: "5px", color: "red" }} />
   </div>
 </div>
 )};

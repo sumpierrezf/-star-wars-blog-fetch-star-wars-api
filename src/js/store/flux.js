@@ -17,8 +17,11 @@ const getState = ({
                 }
             ],
             personajes: [],
+            detallePersonaje: {},
             vehiculos: [],
+            detalleVehiculo: {},
             planetas: [],
+            detallePlaneta: {},
             favoritos: [],
         },
         actions: {
@@ -35,6 +38,14 @@ const getState = ({
                     }))
                     .catch(err => console.error(err))
             },
+            obtenerDetalleDePersonaje: (id) => {
+                fetch("https://swapi.dev/api/people/" + id)
+                    .then(res => res.json())
+                    .then(data => setStore({
+                        detallePersonaje: data
+                    }))
+                    .catch(err => console.error(err))
+            },
 
             obtenerInfoVehiculo: () => {
                 fetch("https://swapi.dev/api/vehicles/")
@@ -44,12 +55,28 @@ const getState = ({
                     }))
                     .catch(err => console.error(err))
             },
+            obtenerDetalleDeVehiculo: (id) => {
+                fetch("https://swapi.dev/api/vehicles/" + id)
+                    .then(res => res.json())
+                    .then(data => setStore({
+                        detalleVehiculo: data
+                    }))
+                    .catch(err => console.error(err))
+            },
 
             obtenerInfoPlanetas: () => {
                 fetch("https://swapi.dev/api/planets/")
                     .then(res => res.json())
                     .then(data => setStore({
                         planetas: data.results,
+                    }))
+                    .catch(err => console.error(err))
+            },
+            obtenerDetalleDePlaneta: (id) => {
+                fetch("https://swapi.dev/api/planets/" + id)
+                    .then(res => res.json())
+                    .then(data => setStore({
+                        detallePlaneta: data
                     }))
                     .catch(err => console.error(err))
             },

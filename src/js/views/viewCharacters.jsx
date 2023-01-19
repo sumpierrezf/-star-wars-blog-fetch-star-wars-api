@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext.js";
 
 import "../../styles/home.css";
 
@@ -7,19 +8,20 @@ import "../../styles/home.css";
 
 export const ViewCharacters = () => {
   const params = useParams();
-  const [detallePersonaje, setDetallePersonaje] = useState([]);
+  const {store, actions} = useContext(Context);
+  // const [detallePersonaje, setDetallePersonaje] = useState([]);
 
   
-  function obtenerDetalleDePersonaje(){
-    fetch("https://swapi.dev/api/people/"+params.theid)
-    .then(res => res.json())
-    .then(data => setDetallePersonaje(data))
-    .catch(err => console.error(err))
-}
+//   function obtenerDetalleDePersonaje(){
+//     fetch("https://swapi.dev/api/people/"+params.theid)
+//     .then(res => res.json())
+//     .then(data => setDetallePersonaje(data))
+//     .catch(err => console.error(err))
+// }
   useEffect(()=>{
-    obtenerDetalleDePersonaje();
+    actions.obtenerDetalleDePersonaje(params.theid);
 },[])
-  console.log(detallePersonaje);
+  
 return(
   <div className="overflow">
     <div className="card mb-3 border-0">
@@ -29,16 +31,20 @@ return(
  style={{ width:"800px", height: "600px" }} className="img-fluid rounded-start"  alt="..."/>
         </div>
         <div className="col-md">
-          <div className="card-body">
-            <h5 className="card-title">{detallePersonaje.name}</h5>
-            <p className="card-text">{detallePersonaje.results}</p>
+          <div className="card-body p-3 m-3">
+            <h3 className="card-title">{store.detallePersonaje.name}</h3>
+            <br/>
+            <p className="card-text">Height: {store.detallePersonaje.height}</p>
+            <p className="card-text">Mass: {store.detallePersonaje.mass}</p>
+            <p className="card-text">Hair color: {store.detallePersonaje.hair_color}</p>
+            <p className="card-text">Skin color: {store.detallePersonaje.skin_color}</p>
+            <p className="card-text">Eye color: {store.detallePersonaje.eye_color}</p>
+            <p className="card-text">Birth year: {store.detallePersonaje.birth_year}</p>
+            <p className="card-text">Gender: {store.detallePersonaje.gender}</p>
             <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
           </div>
         </div>
       </div>
     </div>
-      <div>
-        <hr style={{ height: "5px", color: "red" }} />
-      </div>
   </div>
 )};
