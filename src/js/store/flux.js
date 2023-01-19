@@ -54,9 +54,23 @@ const getState = ({
                     .catch(err => console.error(err))
             },
 
-            agregarFavorito: () => {
-                console.log("funciona")
+            agregarFavorito: (favoritos) => {
+                // console.log("funciona")
+                let store = getStore();
+                setStore({
+                    favoritos: [...store.favoritos, favoritos]
+                })
+
             },
+
+            borrarFavorito: (favoritos) => {
+                //console.log("funciona")
+                let store = getStore();
+                setStore({
+                    favoritos: store.favoritos.filter(fav => fav !== favoritos)
+                })
+            },
+
             loadSomeData: () => {
                 /**
                 	fetch().then().then(data => setStore({ "foo": data.bar }))

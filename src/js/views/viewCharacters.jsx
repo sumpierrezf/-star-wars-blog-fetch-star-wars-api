@@ -21,7 +21,7 @@ export const ViewCharacters = () => {
 },[])
   
   return(
-  <div>
+  <div className="overflow-x-scroll">
     <div className="card mb-3 border-0">
       <div className="row g-0">
         <div className="col-md">
