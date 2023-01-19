@@ -25,7 +25,8 @@ export const ViewPlanets = () => {
     <div className="card mb-3 border-0">
       <div className="row g-0">
         <div className="col-md">
-          <img src="..." style={{ width:"800px", height: "600px" }} className="img-fluid rounded-start"  alt="..."/>
+          <img src={"https://starwars-visualguide.com/assets/img/planets/"+(params.theid)+".jpg"}
+ style={{ width:"800px", height: "600px" }} className="img-fluid rounded-start"  alt="..."/>
         </div>
         <div className="col-md">
           <div className="card-body">
@@ -37,10 +38,7 @@ export const ViewPlanets = () => {
       </div>
   </div>
   <div>
-  <hr style={{ height: "5px",color: "red" }} />
-  </div>
-  <div className="tabla">
-    <p>aca va la tabla</p>
+  <hr style={{ height: "5px", color: "red" }} />
   </div>
 </div>
 )};

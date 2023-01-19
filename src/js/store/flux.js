@@ -57,10 +57,10 @@ const getState = ({
             agregarFavorito: (favoritos) => {
                 // console.log("funciona")
                 let store = getStore();
-                setStore({
-                    favoritos: [...store.favoritos, favoritos]
-                })
-
+                if (favoritos !== "" && !store.favoritos.includes(favoritos)) //agrega cada item solo una vez a fav.
+                    setStore({
+                        favoritos: [...store.favoritos, favoritos]
+                    })
             },
 
             borrarFavorito: (favoritos) => {
