@@ -14,13 +14,13 @@ export const Navbar = () => {
 				<Link to="/demo">			
 					<div className="btn-group">
 					<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-						Action
+						Favorites
 					</button>
 					<ul className="dropdown-menu">
-						<li><Link className="dropdown-item">Action</Link></li>
-						<li><Link className="dropdown-item">Another action</Link></li>
-						<li><Link className="dropdown-item">Something else here</Link></li>
-						<li><Link className="dropdown-item">Separated link</Link></li>
+						{/* <li><Link to="/" className="dropdown-item">Action</Link></li>
+						<li><Link to="/" className="dropdown-item">Another action</Link></li>
+						<li><Link to="/" className="dropdown-item">Something else here</Link></li>
+						<li><Link to="/" className="dropdown-item">Separated link</Link></li> */}
 					</ul>
 					</div>
 				</Link>
