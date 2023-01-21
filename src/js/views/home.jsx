@@ -50,15 +50,15 @@ export const Home = () => {
 	
 	return(
 		<div className="container">
-			<div className="d-flex container bg-dark mb-5" style={{overflowX: "scroll", height:"570px"}}>
+			<div className="d-flex container mb-5" style={{overflowX: "scroll", height:"570px"}}>
   				<div className="d-flex flex-nowrap row row-cols-4">{store.personajes.map((cadaPersonaje, index)=><Characters key={index} id={index+1} nombre={cadaPersonaje.name} genero={cadaPersonaje.gender}/>)}
 				</div>
 			</div>
-			<div className="d-flex container bg-dark mb-5" style={{overflowX: "scroll", height:"410px"}}>
+			<div className="d-flex container mb-5" style={{overflowX: "scroll", height:"410px"}}>
 				<div className="d-flex flex-nowrap row row-cols-4">{store.vehiculos.map((cadaVehiculo, index)=><Vehicle key={index} id={index+1} nombre={cadaVehiculo.name} modelo={cadaVehiculo.model}/>)}
 				</div>
 			</div>
-			<div className="d-flex container bg-dark mb-5" style={{overflowX: "scroll", height:"500px"}}>
+			<div className="d-flex container mb-5" style={{overflowX: "scroll", height:"500px"}}>
   				<div className="d-flex flex-nowrap row row-cols-4">{store.planetas.map((cadaPlaneta, index)=><Planets key={index} id={index+1} nombre={cadaPlaneta.name} terreno={cadaPlaneta.terrain}/>)}
 				</div>
 			</div>
