@@ -41,6 +41,8 @@ const getState = ({
             login: (userEmail, userPassword) => {
                 fetch('https://3000-sumpierrezf-starwarsapi-np12e3ouq3i.ws-us84.gitpod.io/login', {
                         method: 'POST',
+                        // mode: "no-cors",
+                        // credentials: "include",
                         headers: {
                             'Content-Type': 'application/json'
                             // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -69,6 +71,31 @@ const getState = ({
                     .catch((err) => console.log(err))
             },
             //Aca termina el fetch de enlace al backend
+
+            //Fetch para el registro
+            registro: (userEmail, userName, userPassword) => {
+                fetch('https://3000-sumpierrezf-starwarsapi-np12e3ouq3i.ws-us84.gitpod.io/user', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            "email": userEmail,
+                            "user_name": userName,
+                            "password": userPassword
+                        }) // body data type must match "Content-Type" header
+                    })
+                    .then((response) => {
+                        console.log(response.status);
+                        if (response.status === 200) {
+                            setStore({
+                                auth: true
+                            })
+                        }
+                        return response.json()
+                    })
+                    .catch((err) => console.log(err))
+            },
 
             obtenerInfoPersonaje: () => {
                 fetch("https://swapi.dev/api/people/")

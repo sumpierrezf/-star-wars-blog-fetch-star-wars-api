@@ -20,7 +20,8 @@ export const Navbar = () => {
 			</Link>
 			<div className="ml-auto p-3">
 				<div className="btn-group">
-				{store.auth === false ? <Link to={"/form"} className="btn btn-primary me-1">Login</Link> : null}
+				{store.auth === false? <Link to={"/form"} className="btn btn-primary me-1">Login</Link> : null}
+				{store.auth === false? <Link to={"/register"} className="btn btn-primary me-1">Register</Link> : null}
 				{store.auth === true? <button className="btn btn-primary me-1" onClick={handleLogout}>Logout</button> : null}
 				<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Favorites
 				</button>
