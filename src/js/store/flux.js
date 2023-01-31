@@ -53,7 +53,7 @@ const getState = ({
                         }) // body data type must match "Content-Type" header
                     })
                     .then((response) => {
-                        console.log(response.status);
+                        // console.log(response.status);
                         if (response.status === 200) {
                             setStore({
                                 auth: true
@@ -62,8 +62,8 @@ const getState = ({
                         return response.json()
                     })
                     .then((data) => {
-                        console.log(data)
-                        if (data.msg === "Bad email or password") {
+                        // console.log(data)
+                        if (data.msg === "Bad username or password") {
                             alert(data.msg)
                         }
                         localStorage.setItem("token", data.access_token)
@@ -94,6 +94,13 @@ const getState = ({
                         }
                         return response.json()
                     })
+                    // .then((data) => {
+                    //     // console.log(data)
+                    //     // if (data.msg === "Bad username or password") {
+                    //     //     alert(data.msg)
+                    //     // }
+                    //     localStorage.setItem("token", data.access_token)
+                    // })
                     .catch((err) => console.log(err))
             },
 
