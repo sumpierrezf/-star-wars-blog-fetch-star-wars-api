@@ -8,6 +8,7 @@ import { Single } from "./views/single";
 import { ViewCharacters } from "./views/viewCharacters.jsx";
 import { ViewVehicles } from "./views/viewVehicles.jsx";
 import { ViewPlanets } from "./views/viewPlanets.jsx";
+import { Form } from "./views/form.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
@@ -27,6 +28,7 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
+						<Route path="/form" element={<Form />} />
 						<Route path="/viewCharacters/:theid" element={<ViewCharacters />} />
 						<Route path="/viewVehicles/:theid" element={<ViewVehicles />} />
 						<Route path="/viewPlanets/:theid" element={<ViewPlanets />} />

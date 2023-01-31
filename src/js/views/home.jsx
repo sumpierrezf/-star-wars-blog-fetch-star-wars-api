@@ -7,6 +7,7 @@ import { Context } from "../store/appContext.js";
 
 
 
+
 export const Home = () => {
 
 	const {store} = useContext(Context);
